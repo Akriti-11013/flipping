@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Flip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .card {
+            width: 200px;
+            height: 300px;
+            perspective: 1000px; /* Depth of the 3D space */
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d; /* Ensures child elements are rendered in 3D space */
+        }
+        .card:hover .card-inner {
+            transform: rotateY(180deg); /* Flips the card on hover */
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Hides the back side during the flip */
+        }
+        .card-front {
+            background-color: #bf179a;
+            color: white;
+        }
+        .card-back {
+            background-color: #99b018;
+            color: white;
+            transform: rotateY(180deg); /* Initially hidden, flipped 180 degrees */
+        }
+        .card-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-face card-front">
+                <div class="card-content">
+                    FLIPPING
+                </div>
+            </div>
+            <div class="card-face card-back">
+                <div class="card-content">
+                    CARD
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
